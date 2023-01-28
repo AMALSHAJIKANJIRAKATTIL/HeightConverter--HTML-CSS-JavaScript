@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height Converter</title>
+</head>
+<body style="margin: 0;">
+    
+    <div style="display : flex; justify-content: center; align-items: center; height : 100vh; width: 100vw; background-color: black;">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 70%; height: 80%; background-color: #F2AA4CFF; border-radius: 5%;">
+        <h1><b>HEIGHT CONVERTER</b></h1>
+        <p>Enter yout height in feet : </p>
+        <div style="width: 100%; height: 20%; display : flex; justify-content:space-around; align-items: center;">
+            <input id="feet" type="number" style="width: 70%; height: 30%;" placeholder="Enter value in feet">
+            <button style="width: 25%; height: 35%; background-color: black; color: #F2AA4CFF;" onclick="convert()">Convert</button>
+        </div>
+
+        <h3 id="warning" style="color:  red;"></h3>
+        <div style="display: flex;  justify-content: space-around; flex-direction: row; background-color: black; color: #F2AA4CFF; width: 90%; height: 40%;">
+            <div style="display : flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h3 style="text-align: center;">Height in centimeters:</h3>
+                <div id="cm" style=" display: flex; align-items: center; justify-content: center; color: green; background-color: white; height: 50%; font-size: xx-large; width: 250px;" > </div>
+            </div>
+            <div style="display : flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h3 style="text-align: center;">Height in inches:</h3>
+                <div id="inch" style="display: flex; align-items: center; justify-content: center; color: green; background-color: white; height: 50%; font-size: xx-large; width:250px;" ></div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <script>
+        function convert(){
+            document.getElementById('warning').innerText="";
+            document.getElementById('cm').innerText="";
+            document.getElementById('inch').innerText="";
+
+            let num=parseInt(document.getElementById('feet').value);
+            //console.log(num,typeof(num));
+            if(num>9){
+                
+                document.getElementById('warning').innerText="No such person exists in recorded history.";
+                return;
+            }else if(num<=0){
+                document.getElementById('warning').innerText="Please enter a valid value.";
+                return;
+            }else{
+            document.getElementById('cm').innerText=num*30.48;
+            document.getElementById('inch').innerText=num*12;
+            }
+        }
+    </script>
+</body>
+</html>
